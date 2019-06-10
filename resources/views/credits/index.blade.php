@@ -44,8 +44,16 @@
                             <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            {!! Form::open(['action' => ['CreditsController@destroy', $credit->id], 'method' => 'DELETE', 'class' => 'pull-right']) !!}
-                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                            <a class="btn btn-danger" href="" onclick="
+                                event.preventDefault();
+                                if(confirm('Delete credit?')) {
+                                    document.getElementById('credit-<?= $credit->id ?>').submit();
+                                }
+                            ">
+                                Delete
+                            </a>
+                            {!! Form::open(['action' => ['CreditsController@destroy', $credit->id],
+                            'method' => 'DELETE', 'class' => 'pull-right', 'id' => 'credit-' . $credit->id]) !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>

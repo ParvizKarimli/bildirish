@@ -129,6 +129,9 @@ class CreditsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $credit = Credit::find($id);
+        $credit->delete();
+
+        return redirect('credits')->with('success', 'Credit Removed');
     }
 }
