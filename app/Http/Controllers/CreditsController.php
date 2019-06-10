@@ -15,7 +15,7 @@ class CreditsController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,7 @@ class CreditsController extends Controller
      */
     public function index()
     {
-        //
+        return view('credits.index');
     }
 
     /**
@@ -33,7 +33,7 @@ class CreditsController extends Controller
      */
     public function create()
     {
-        //
+        return view('credits.create');
     }
 
     /**
@@ -55,7 +55,7 @@ class CreditsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('credits.show');
     }
 
     /**
@@ -66,7 +66,7 @@ class CreditsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('credits.edit');
     }
 
     /**
