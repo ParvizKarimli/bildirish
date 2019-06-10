@@ -44,7 +44,7 @@
                             <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            {!! Form::open(['action' => ['CreditsController@destroy', $credit->id], 'method' => 'post', 'class' => 'pull-right']) !!}
+                            {!! Form::open(['action' => ['CreditsController@destroy', $credit->id], 'method' => 'DELETE', 'class' => 'pull-right']) !!}
                             {{Form::hidden('_method', 'DELETE')}}
                             {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                             {!! Form::close() !!}
