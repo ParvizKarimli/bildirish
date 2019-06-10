@@ -134,4 +134,10 @@ class CreditsController extends Controller
 
         return redirect('credits')->with('success', 'Credit Removed');
     }
+
+    // Search name for credits/index view
+    public function search()
+    {
+        //
+    }
 }
