@@ -15,7 +15,19 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+/*Auth::routes();
+
+Route::match(['get', 'post'], 'register', function(){
+    return redirect('/');
+});
+
+Route::match(['get', 'post'], 'password/reset', function(){
+    return redirect('/');
+});*/
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/dashboard', 'DashboardController@index');
 
