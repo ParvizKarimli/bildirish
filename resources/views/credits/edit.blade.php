@@ -36,7 +36,6 @@
                 {{Form::label('phone', 'Phone')}}
                 {{Form::text('phone', $credit->phone, ['class' => 'form-control'])}}
             </div>
-            {{Form::hidden('_method', 'PUT')}}
             {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
     </div>
