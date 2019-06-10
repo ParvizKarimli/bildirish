@@ -4,6 +4,11 @@
     <div class="row">
         <a href="/credits/create" class="btn btn-default">Add Credit</a>
         <h3>Credits</h3>
+        {!! Form::open(['action' => 'CreditsController@search', 'method' => 'GET']) !!}
+            <div class="form-group">
+                {{Form::text('search', '', ['class' => 'form-control', 'placeholder' => 'Search name'])}}
+            </div>
+        {!! Form::close() !!}
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
