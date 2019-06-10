@@ -56,6 +56,21 @@ class CreditsController extends Controller
             'location' => 'required',
             'phone' => 'required'
         ]);
+
+        $credit = new Credit;
+        $credit->name = $request->input('name');
+        $credit->duration_months = $request->input('duration_months');
+        $credit->initial_amount = $request->input('initial_amount');
+        $credit->paid_amount = $request->input('paid_amount');
+        $credit->remained_amount = $credit->initial_amount - $credit->paid_amount;
+        $credit->issuer = $request->input('issuer');
+        $credit->date = date('Y-m-d', strtotime($request->input('date')));
+        $credit->location = $request->input('location');
+        $credit->phone = $request->input('phone');
+        $credit->status = 0;
+        $credit->save();
+
+        return redirect('credits')->with('success', 'Credit Added');
     }
 
     /**
