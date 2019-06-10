@@ -143,7 +143,61 @@ class CreditsController extends Controller
     public function search(Request $request)
     {
         $search_term = $request->input('search_term');
+        $credits = Credit::where('name', 'like', '%' . $search_term . '%')
+            ->orderBy('id', 'desc')
+            ->paginate(50);
 
-        echo '<b>' . $search_term . '</b>';
+        echo '
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Duration (months)</th>
+                    <th>Initial Amount</th>
+                    <th>Paid Amount</th>
+                    <th>Remained Amount</th>
+                    <th>Issuer</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        ';
+
+        foreach($credits as $credit)
+        {
+            echo '
+                <tr><td>' . $credit->id . '</td><td>' .
+                $credit->name . '</td><td>' .
+                $credit->duration_months . '</td><td>' .
+                $credit->initial_amount . '</td><td>' .
+                $credit->paid_amount . '</td><td>' .
+                $credit->remained_amount . '</td><td>' .
+                $credit->issuer . '</td><td>' .
+                $credit->date . '</td><td>' .
+                $credit->location . '</td><td>' .
+                $credit->phone . '</td><td>' .
+                $credit->status . '</td><td>' .
+                $credit->created_at . '</td><td>' .
+                $credit->updated_at . '</td><td>' .
+                '<a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td><td>' .
+                '<a class="btn btn-danger" href="" onclick="event.preventDefault();
+                    if(confirm(\'Delete credit?\')) {
+                        document.getElementById(\'credit-' . $credit->id . '\').submit();
+                    }
+                ">Delete</a></td>' .
+                '<form accept-charset="UTF-8" method="POST" class="pull-right" action="/credits/' . $credit->id .
+                '" id="credit-' . $credit->id . '">' .
+                '<input name="_method" type="hidden" value="DELETE">' .
+                csrf_field() .
+                '</form>' .
+                '</tr></tbody></table>';
+        }
     }
 }

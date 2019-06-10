@@ -53,7 +53,7 @@
                             <a class="btn btn-danger" href="" onclick="
                                 event.preventDefault();
                                 if(confirm('Delete credit?')) {
-                                    document.getElementById('credit-<?= $credit->id ?>').submit();
+                                    document.getElementById('credit-{{$credit->id}}').submit();
                                 }
                             ">
                                 Delete
