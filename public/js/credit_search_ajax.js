@@ -1,4 +1,4 @@
-// This is file is used in credits/index view
+// This is file is used in credits/index view to populate the table content by AJAX
 
 function getCreditsBySearchTerm(search_term) {
     var search_term = document.getElementById('search_term').value;
