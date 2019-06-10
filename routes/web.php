@@ -30,4 +30,4 @@ Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::resource('credits', 'CreditsController');
-Route::get('credits/search', 'CreditsController@search');
+Route::post('credits/search', 'CreditsController@search');

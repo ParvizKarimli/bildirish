@@ -73,6 +73,10 @@ class CreditsController extends Controller
         return redirect('credits')->with('success', 'Credit Added');
     }
 
+    // Empty show method to prevent error
+    public function show()
+    {}
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -136,8 +140,10 @@ class CreditsController extends Controller
     }
 
     // Search name for credits/index view
-    public function search()
+    public function search(Request $request)
     {
-        //
+        $search_term = $request->input('search_term');
+
+        echo '<b>' . $search_term . '</b>';
     }
 }
