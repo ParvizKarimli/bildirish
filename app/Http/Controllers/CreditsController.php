@@ -46,7 +46,16 @@ class CreditsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'duration_months' => 'required',
+            'initial_amount' => 'required',
+            'paid_amount' => 'required',
+            'issuer' => 'required',
+            'date' => 'required',
+            'location' => 'required',
+            'phone' => 'required'
+        ]);
     }
 
     /**
