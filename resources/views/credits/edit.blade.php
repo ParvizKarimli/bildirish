@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <h1>Add Credit</h1>
+        <h1>Edit Credit</h1>
         {!! Form::open(['action' => ['CreditsController@update', $credit->id], 'method' => 'PUT']) !!}
             <div class="form-group">
                 {{Form::label('name', 'Name')}}
