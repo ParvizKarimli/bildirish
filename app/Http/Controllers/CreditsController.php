@@ -24,7 +24,7 @@ class CreditsController extends Controller
      */
     public function index()
     {
-        $credits = Credit::orderBy('id', 'desc')->paginate(10);
+        $credits = Credit::orderBy('id', 'desc')->paginate(50);
         return view('credits.index')->with('credits', $credits);
     }
 

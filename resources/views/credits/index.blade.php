@@ -53,5 +53,6 @@
                 @endforeach
             </tbody>
         </table>
+        {{$credits->links()}}
     </div>
 @endsection
