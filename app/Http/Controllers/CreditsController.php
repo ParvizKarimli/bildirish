@@ -81,7 +81,8 @@ class CreditsController extends Controller
      */
     public function edit($id)
     {
-        return view('credits.edit');
+        $credit = Credit::find($id);
+        return view('credits.edit')->with('credit', $credit);
     }
 
     /**
