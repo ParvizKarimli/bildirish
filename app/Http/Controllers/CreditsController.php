@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Credit;
 
 class CreditsController extends Controller
 {
@@ -23,7 +24,8 @@ class CreditsController extends Controller
      */
     public function index()
     {
-        return view('credits.index');
+        $credits = Credit::orderBy('id', 'desc')->paginate(10);
+        return view('credits.index')->with('credits', $credits);
     }
 
     /**
