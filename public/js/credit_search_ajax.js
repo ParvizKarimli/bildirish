@@ -4,6 +4,7 @@ function getCreditsBySearchTerm(search_term) {
     var search_term = document.getElementById('search_term').value;
 
     if(search_term == '') {
+        // Fix this later
         document.getElementById('credits_table').innerHTML = 'empty';
         return;
     } else {
