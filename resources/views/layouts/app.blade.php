@@ -25,5 +25,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/credit_search_ajax.js') }}"></script>
 </body>
 </html>

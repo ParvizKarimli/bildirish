@@ -6,10 +6,11 @@
         <h3>Credits</h3>
         {!! Form::open(['action' => 'CreditsController@search', 'method' => 'GET']) !!}
             <div class="form-group">
-                {{Form::text('search', '', ['class' => 'form-control', 'placeholder' => 'Search name'])}}
+                {{Form::text('search_term', '', ['class' => 'form-control', 'placeholder' => 'Search name',
+                'id' => 'search_term', 'onkeyup' => 'getCreditsBySearchTerm(this.value)'])}}
             </div>
         {!! Form::close() !!}
-        <table class="table table-striped table-dark">
+        <table class="table table-striped table-dark" id="credits_table">
             <thead>
                 <tr>
                     <th>ID</th>
