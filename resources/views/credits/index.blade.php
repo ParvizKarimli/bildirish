@@ -15,15 +15,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Duration (months)</th>
-                    <th>Initial Amount</th>
-                    <th>Paid Amount</th>
-                    <th>Remained Amount</th>
-                    <th>Issuer</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Phone</th>
-                    <th>Status</th>
+                    <th>Last Payment Date</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th></th>
@@ -35,15 +27,7 @@
                     <tr>
                         <td>{{$credit->id}}</td>
                         <td>{{$credit->name}}</td>
-                        <td>{{$credit->duration_months}}</td>
-                        <td>{{$credit->initial_amount}}</td>
-                        <td>{{$credit->paid_amount}}</td>
-                        <td>{{$credit->remained_amount}}</td>
-                        <td>{{$credit->issuer}}</td>
-                        <td>{{$credit->date}}</td>
-                        <td>{{$credit->location}}</td>
-                        <td>{{$credit->phone}}</td>
-                        <td>{{$credit->status}}</td>
+                        <td>{{$credit->last_payment_date}}</td>
                         <td>{{$credit->created_at}}</td>
                         <td>{{$credit->updated_at}}</td>
                         <td>
