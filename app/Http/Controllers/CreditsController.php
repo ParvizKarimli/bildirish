@@ -139,7 +139,7 @@ class CreditsController extends Controller
         return redirect('credits')->with('success', 'Credit Removed');
     }
 
-    // Search name for credits/index view
+    // Search name on credits/index view
     public function search(Request $request)
     {
         $search_term = $request->input('search_term');
