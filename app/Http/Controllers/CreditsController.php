@@ -137,8 +137,20 @@ class CreditsController extends Controller
     // Notification sender method
     public function notify()
     {
-        echo 'OK!';
-        /*$credits = Credit::all();
-        print_r($credits);*/
+        $credits = Credit::all();
+        foreach($credits as $credit)
+        {
+            /* Check when the last payment was and when the last notification was.
+               If their differences from now are greater than specified number of days,
+               then send notification to related people, and change the last notification date & time to now
+            */
+            if((strtotime(date('Y-m-d')) - strtotime($credit->last_payment_date))/86400 >= 1 &&
+            (strtotime(date('Y-m-d H:i:s')) - strtotime($credit->last_payment_date))/86400 >= 1)
+            {
+                echo 'Send notification to ' . $credit->phone . '/' . $credit->name . '<br>';
+                $credit->last_notified_at = date('Y-m-d H:i:s');
+                $credit->save();
+            }
+        }
     }
 }
