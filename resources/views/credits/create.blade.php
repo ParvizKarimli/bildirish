@@ -10,7 +10,7 @@
             </div>
             <div class="form-group">
                 {{Form::label('last_payment_date', 'Last Payment Date')}}
-                {{Form::date('date', '', ['class' => 'form-control', 'required'])}}
+                {{Form::date('last_payment_date', '', ['class' => 'form-control', 'required'])}}
             </div>
             {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
