@@ -127,8 +127,7 @@ class CreditsController extends Controller
                 $credit->last_payment_date . '</td><td>' .
                 $credit->created_at . '</td><td>' .
                 $credit->updated_at . '</td>' .
-                '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td>' .
-                '</form></td></tr>';
+                '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td></tr>';
         }
     }
 }
