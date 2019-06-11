@@ -125,6 +125,7 @@ class CreditsController extends Controller
             echo '
                 <tr><td>' . $credit->id . '</td><td>' .
                 $credit->name . '</td><td>' .
+                $credit->phone . '</td><td>' .
                 $credit->last_payment_date . '</td><td>' .
                 $credit->last_notified_at . '</td><td>' .
                 $credit->created_at . '</td><td>' .
