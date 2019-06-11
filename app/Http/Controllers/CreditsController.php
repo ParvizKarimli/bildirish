@@ -124,15 +124,7 @@ class CreditsController extends Controller
             echo '
                 <tr><td>' . $credit->id . '</td><td>' .
                 $credit->name . '</td><td>' .
-                $credit->duration_months . '</td><td>' .
-                $credit->initial_amount . '</td><td>' .
-                $credit->paid_amount . '</td><td>' .
-                $credit->remained_amount . '</td><td>' .
-                $credit->issuer . '</td><td>' .
-                $credit->date . '</td><td>' .
-                $credit->location . '</td><td>' .
-                $credit->phone . '</td><td>' .
-                $credit->status . '</td><td>' .
+                $credit->last_payment_date . '</td><td>' .
                 $credit->created_at . '</td><td>' .
                 $credit->updated_at . '</td>' .
                 '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td>' .
