@@ -48,26 +48,12 @@ class CreditsController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'duration_months' => 'required',
-            'initial_amount' => 'required',
-            'paid_amount' => 'required',
-            'issuer' => 'required',
-            'date' => 'required',
-            'location' => 'required',
-            'phone' => 'required'
+            'last_payment_date' => 'required'
         ]);
 
         $credit = new Credit;
         $credit->name = $request->input('name');
-        $credit->duration_months = $request->input('duration_months');
-        $credit->initial_amount = $request->input('initial_amount');
-        $credit->paid_amount = $request->input('paid_amount');
-        $credit->remained_amount = $credit->initial_amount - $credit->paid_amount;
-        $credit->issuer = $request->input('issuer');
-        $credit->date = date('Y-m-d', strtotime($request->input('date')));
-        $credit->location = $request->input('location');
-        $credit->phone = $request->input('phone');
-        $credit->status = 0;
+        $credit->last_payment_date = $request->input('last_payment_date');
         $credit->save();
 
         return redirect('credits')->with('success', 'Credit Added');
@@ -100,26 +86,12 @@ class CreditsController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'duration_months' => 'required',
-            'initial_amount' => 'required',
-            'paid_amount' => 'required',
-            'issuer' => 'required',
-            'date' => 'required',
-            'location' => 'required',
-            'phone' => 'required'
+            'last_payment_date' => 'required'
         ]);
 
         $credit = Credit::find($id);
         $credit->name = $request->input('name');
-        $credit->duration_months = $request->input('duration_months');
-        $credit->initial_amount = $request->input('initial_amount');
-        $credit->paid_amount = $request->input('paid_amount');
-        $credit->remained_amount = $credit->initial_amount - $credit->paid_amount;
-        $credit->issuer = $request->input('issuer');
-        $credit->date = date('Y-m-d', strtotime($request->input('date')));
-        $credit->location = $request->input('location');
-        $credit->phone = $request->input('phone');
-        $credit->status = 0;
+        $credit->last_payment_date = $request->input('last_payment_date');
         $credit->save();
 
         return redirect('credits')->with('success', 'Credit Updated');
