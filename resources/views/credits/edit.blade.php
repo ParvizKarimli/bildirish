@@ -14,16 +14,17 @@
             </div>
             {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
+        <hr>
         <a class="btn btn-danger" href="" onclick="
             event.preventDefault();
             if(confirm('Delete credit?')) {
                 document.getElementById('credit-{{$credit->id}}').submit();
             }
         ">
-            Delete
+            Delete Credit (!)
         </a>
         {!! Form::open(['action' => ['CreditsController@destroy', $credit->id],
-        'method' => 'DELETE', 'class' => 'pull-right', 'id' => 'credit-' . $credit->id]) !!}
+        'method' => 'DELETE', 'id' => 'credit-' . $credit->id]) !!}
         {!! Form::close() !!}
     </div>
 @endsection
