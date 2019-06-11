@@ -6,35 +6,35 @@
         {!! Form::open(['action' => 'CreditsController@store', 'method' => 'POST']) !!}
             <div class="form-group">
                 {{Form::label('name', 'Name')}}
-                {{Form::text('name', '', ['class' => 'form-control'])}}
+                {{Form::text('name', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('duration_months', 'Duration (months)')}}
-                {{Form::number('duration_months', '', ['class' => 'form-control'])}}
+                {{Form::number('duration_months', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('initial_amount', 'Initial Amount')}}
-                {{Form::number('initial_amount', '', ['class' => 'form-control'])}}
+                {{Form::number('initial_amount', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('paid_amount', 'Paid Amount')}}
-                {{Form::number('paid_amount', '', ['class' => 'form-control'])}}
+                {{Form::number('paid_amount', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('issuer', 'Issuer')}}
-                {{Form::text('issuer', '', ['class' => 'form-control'])}}
+                {{Form::text('issuer', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('date', 'Date')}}
-                {{Form::date('date', '', ['class' => 'form-control'])}}
+                {{Form::date('date', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('location', 'Location')}}
-                {{Form::text('location', '', ['class' => 'form-control'])}}
+                {{Form::text('location', '', ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
                 {{Form::label('phone', 'Phone')}}
-                {{Form::text('phone', '', ['class' => 'form-control'])}}
+                {{Form::text('phone', '', ['class' => 'form-control', 'required'])}}
             </div>
             {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
         {!! Form::close() !!}
