@@ -19,7 +19,6 @@
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,19 +31,6 @@
                         <td>{{$credit->updated_at}}</td>
                         <td>
                             <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Edit</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="" onclick="
-                                event.preventDefault();
-                                if(confirm('Delete credit?')) {
-                                    document.getElementById('credit-{{$credit->id}}').submit();
-                                }
-                            ">
-                                Delete
-                            </a>
-                            {!! Form::open(['action' => ['CreditsController@destroy', $credit->id],
-                            'method' => 'DELETE', 'class' => 'pull-right', 'id' => 'credit-' . $credit->id]) !!}
-                            {!! Form::close() !!}
                         </td>
                     </tr>
                 @endforeach
