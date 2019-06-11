@@ -16,6 +16,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Last Payment Date</th>
+                    <th>Last Notified At</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th></th>
@@ -27,6 +28,7 @@
                         <td>{{$credit->id}}</td>
                         <td>{{$credit->name}}</td>
                         <td>{{$credit->last_payment_date}}</td>
+                        <td>{{$credit->last_notified_at}}</td>
                         <td>{{$credit->created_at}}</td>
                         <td>{{$credit->updated_at}}</td>
                         <td>
