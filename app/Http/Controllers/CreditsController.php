@@ -162,18 +162,18 @@ class CreditsController extends Controller
                 $credit->phone . '</td><td>' .
                 $credit->status . '</td><td>' .
                 $credit->created_at . '</td><td>' .
-                $credit->updated_at . '</td><td>' .
-                '<a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td><td>' .
-                '<a class="btn btn-danger" href="" onclick="event.preventDefault();
+                $credit->updated_at . '</td>' .
+                '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td>' .
+                '<td><a class="btn btn-danger" href="" onclick="event.preventDefault();
                     if(confirm(\'Delete credit?\')) {
                         document.getElementById(\'credit-' . $credit->id . '\').submit();
                     }
-                ">Delete</a></td>' .
+                ">Delete</a>' .
                 '<form accept-charset="UTF-8" method="POST" class="pull-right" action="/credits/' . $credit->id .
                 '" id="credit-' . $credit->id . '">' .
                 '<input name="_method" type="hidden" value="DELETE">' .
                 csrf_field() .
-                '</form></tr>';
+                '</form></td></tr>';
         }
     }
 }
