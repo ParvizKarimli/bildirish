@@ -131,4 +131,12 @@ class CreditsController extends Controller
                 '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td></tr>';
         }
     }
+
+    // Notification sender method
+    public function notify()
+    {
+        echo 'OK!';
+        /*$credits = Credit::all();
+        print_r($credits);*/
+    }
 }
