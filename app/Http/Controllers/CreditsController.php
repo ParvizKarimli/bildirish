@@ -147,29 +147,6 @@ class CreditsController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(50);
 
-        echo '
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Duration (months)</th>
-                    <th>Initial Amount</th>
-                    <th>Paid Amount</th>
-                    <th>Remained Amount</th>
-                    <th>Issuer</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Phone</th>
-                    <th>Status</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-        ';
-
         foreach($credits as $credit)
         {
             echo '
@@ -196,8 +173,7 @@ class CreditsController extends Controller
                 '" id="credit-' . $credit->id . '">' .
                 '<input name="_method" type="hidden" value="DELETE">' .
                 csrf_field() .
-                '</form>' .
-                '</tr></tbody></table>';
+                '</form></tr>';
         }
     }
 }

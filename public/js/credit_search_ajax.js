@@ -5,7 +5,7 @@ function getCreditsBySearchTerm(search_term) {
 
     if(search_term == '') {
         // Fix this later
-        document.getElementById('credits_table').innerHTML = 'empty';
+        document.getElementById('credits_table').tBodies[0].innerHTML = 'empty';
         return;
     } else {
         if(window.XMLHttpRequest) {
@@ -26,7 +26,7 @@ function getCreditsBySearchTerm(search_term) {
         {
             if(this.readyState == 4 && this.status == 200)
             {
-                document.getElementById('credits_table').innerHTML = this.responseText;
+                document.getElementById('credits_table').tBodies[0].innerHTML = this.responseText;
             }
         };
     }

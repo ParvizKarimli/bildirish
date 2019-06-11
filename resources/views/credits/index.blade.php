@@ -10,7 +10,7 @@
                 'id' => 'search_term', 'onkeyup' => 'getCreditsBySearchTerm(this.value)'])}}
             </div>
         {!! Form::close() !!}
-        <table class="table table-striped table-dark" id="credits_table">
+        <table class="table table-striped" id="credits_table">
             <thead>
                 <tr>
                     <th>ID</th>
