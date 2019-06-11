@@ -24,4 +24,6 @@ function getCreditsBySearchTerm(search_term) {
             document.getElementById('credits_table').tBodies[0].innerHTML = this.responseText;
         }
     };
+
+    return;
 }
