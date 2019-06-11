@@ -24,7 +24,7 @@ class CreateCreditsTable extends Migration
             $table->date('date');
             $table->string('location');
             $table->string('phone');
-            $table->boolean('status');
+            $table->boolean('status')->default(0)->change();
             $table->timestamps();
         });
     }
