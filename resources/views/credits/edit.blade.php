@@ -9,6 +9,10 @@
                 {{Form::text('name', $credit->name, ['class' => 'form-control', 'required'])}}
             </div>
             <div class="form-group">
+                {{Form::label('phone', 'Phone')}}
+                {{Form::text('phone', $credit->phone, ['class' => 'form-control', 'required'])}}
+            </div>
+            <div class="form-group">
                 {{Form::label('last_payment_date', 'Last Payment Date')}}
                 {{Form::date('last_payment_date', $credit->last_payment_date, ['class' => 'form-control', 'required'])}}
             </div>
