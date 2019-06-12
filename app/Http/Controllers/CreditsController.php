@@ -49,11 +49,13 @@ class CreditsController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'phone' => 'required',
             'last_payment_date' => 'required'
         ]);
 
         $credit = new Credit;
         $credit->name = $request->input('name');
+        $credit->phone = $request->input('phone');
         $credit->last_payment_date = $request->input('last_payment_date');
         $credit->save();
 
