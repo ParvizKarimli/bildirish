@@ -8,6 +8,10 @@
                 {{Form::label('name', 'Name')}}
                 {{Form::text('name', '', ['class' => 'form-control', 'required'])}}
             </div>
+        <div class="form-group">
+            {{Form::label('phone', 'Phone')}}
+            {{Form::text('phone', '', ['class' => 'form-control', 'required'])}}
+        </div>
             <div class="form-group">
                 {{Form::label('last_payment_date', 'Last Payment Date')}}
                 {{Form::date('last_payment_date', '', ['class' => 'form-control', 'required'])}}
