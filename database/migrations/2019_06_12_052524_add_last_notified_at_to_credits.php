@@ -14,7 +14,9 @@ class AddLastNotifiedAtToCredits extends Migration
     public function up()
     {
         Schema::table('credits', function($table){
-            $table->dateTime('last_notified_at')->after('last_payment_date');
+            $table->dateTime('last_notified_at')
+                ->default(date('Y-m-d H:i:s', strtotime('0000-00-00 00:00:00')))
+                ->after('last_payment_date');
         });
     }
 
