@@ -147,9 +147,17 @@ class CreditsController extends Controller
             if((strtotime(date('Y-m-d')) - strtotime($credit->last_payment_date))/86400 >= 1 &&
             (strtotime(date('Y-m-d H:i:s')) - strtotime($credit->last_notified_at))/86400 >= 1)
             {
-                echo 'Send notification to ' . $credit->phone . '/' . $credit->name . '<br>';
-                $credit->last_notified_at = date('Y-m-d H:i:s');
-                $credit->save();
+                $to = 'devparviz@gmail.com';
+                $subject = 'Bildirish Notification';
+                $message = 'This is a notification to ' . $credit->phone . '/' . $credit->name;
+                $headers = "From:Bildirish<noreply@example.com>";
+
+                if(mail($to, $subject, $message, $headers))
+                {
+                    $credit->last_notified_at = date('Y-m-d H:i:s');
+                    $credit->save();
+                    echo 'Notification sent to ' . $credit->phone . '/' . $credit->name . '<br>';
+                }
             }
         }
     }
