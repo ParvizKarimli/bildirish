@@ -59,7 +59,7 @@ class CreditsController extends Controller
         $credit->last_payment_date = $request->input('last_payment_date');
         $credit->save();
 
-        return redirect('credits')->with('success', 'Credit Added');
+        return redirect('credits')->with('success', 'Kredit uğurla əlavə edildi.');
     }
 
     // Empty show method to prevent error
@@ -99,7 +99,7 @@ class CreditsController extends Controller
         $credit->last_payment_date = $request->input('last_payment_date');
         $credit->save();
 
-        return redirect('credits')->with('success', 'Credit Updated');
+        return redirect('credits')->with('success', 'Kredit uğurla redaktə edildi.');
     }
 
     /**
@@ -113,7 +113,7 @@ class CreditsController extends Controller
         $credit = Credit::find($id);
         $credit->delete();
 
-        return redirect('credits')->with('success', 'Credit Removed');
+        return redirect('credits')->with('success', 'Kredit uğurla silindi.');
     }
 
     // Search name on credits/index view
@@ -130,7 +130,7 @@ class CreditsController extends Controller
                 $credit->phone . '</td><td>' .
                 $credit->last_payment_date . '</td><td>' .
                 $credit->last_notified_at . '</td>' .
-                '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Edit</a></td></tr>';
+                '<td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Redaktə Et</a></td></tr>';
         }
     }
 

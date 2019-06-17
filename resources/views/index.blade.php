@@ -4,7 +4,7 @@
 
     <div class="jumbotron text-center">
         <h1>Bildirish</h1>
-        <p>Bildirish SMS sender application</p>
+        <p>Bildirish notification sender application</p>
     </div>
 
 @endsection

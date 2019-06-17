@@ -2,21 +2,21 @@
 
 @section('content')
     <div class="row">
-        <a href="/credits/create" class="btn btn-default">Add Credit</a>
-        <h3>Credits</h3>
+        <a href="/credits/create" class="btn btn-default">Kredit Əlavə Et</a>
+        <h3>Kreditlər</h3>
         {!! Form::open(['action' => 'CreditsController@search', 'method' => 'GET']) !!}
             <div class="form-group">
-                {{Form::text('search_term', '', ['class' => 'form-control', 'placeholder' => 'Search name',
+                {{Form::text('search_term', '', ['class' => 'form-control', 'placeholder' => 'Ad axtar',
                 'id' => 'search_term', 'onkeyup' => 'getCreditsBySearchTerm(this.value)'])}}
             </div>
         {!! Form::close() !!}
         <table class="table table-striped" id="credits_table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Last Payment Date</th>
-                    <th>Last Notified At</th>
+                    <th>Ad</th>
+                    <th>Telefon</th>
+                    <th>Son Ödəniş Tarixi</th>
+                    <th>Son Bildiriş Tarixi & Vaxtı</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@
                         <td>{{$credit->last_payment_date}}</td>
                         <td>{{$credit->last_notified_at}}</td>
                         <td>
-                            <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Edit</a>
+                            <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Redaktə Et</a>
                         </td>
                     </tr>
                 @endforeach
