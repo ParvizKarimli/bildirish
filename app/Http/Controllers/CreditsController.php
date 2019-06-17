@@ -15,7 +15,7 @@ class CreditsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('test');
         date_default_timezone_set('Asia/Baku');
     }
 
@@ -187,7 +187,7 @@ class CreditsController extends Controller
             echo 'SMS sent successfully.';
         }
     }
-    
+
     public function test()
     {
         echo 'Cron job ran successfully.';
