@@ -31,5 +31,6 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('credits/notify', 'CreditsController@notify');
 Route::get('credits/send_sms', 'CreditsController@send_sms');
+Route::get('credits/test', 'CreditsController@test');
 Route::resource('credits', 'CreditsController');
 Route::post('credits/search', 'CreditsController@search');

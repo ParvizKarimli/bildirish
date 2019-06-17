@@ -187,4 +187,9 @@ class CreditsController extends Controller
             echo 'SMS sent successfully.';
         }
     }
+    
+    public function test()
+    {
+        echo 'Cron job ran successfully.';
+    }
 }
