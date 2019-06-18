@@ -23,7 +23,7 @@ if($credits->num_rows > 0)
 		   then send notification to related people, and change the last notification date & time to now
 		*/
 		if((strtotime(date('Y-m-d')) - strtotime($credit['last_payment_date']))/86400 >= 1 &&
-		(strtotime(date('Y-m-d H:i:s')) - strtotime($credit['last_notified_at']))/86400 >= 1)
+		(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($credit['last_notified_at']))))/86400 >= 1)
 		{
 			$to = 'devparviz@gmail.com';
 			$subject = 'Bildirish Notification';
