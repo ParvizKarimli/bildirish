@@ -15,7 +15,7 @@ class CreditsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('test');
+        $this->middleware('auth');
         date_default_timezone_set('Asia/Baku');
     }
 
