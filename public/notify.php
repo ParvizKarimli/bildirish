@@ -2,6 +2,20 @@
 
 date_default_timezone_set('Asia/Baku');
 
+require 'bildirish/vendor/twilio/sdk/Twilio/autoload.php';
+use Twilio\Rest\Client;
+
+// Your Account SID and Auth Token from twilio.com/console
+$account_sid = 'AC6ea9472cf9874c2d7fa191e65a4dea8d';
+$auth_token = 'e83d42870437773ad58d0909a38d7614';
+// In production, these should be environment variables. E.g.:
+// $auth_token = $_ENV["TWILIO_ACCOUNT_SID"]
+
+// A Twilio number you own with SMS capabilities
+$twilio_number = "+12512998603";
+
+$client = new Client($account_sid, $auth_token);
+
 $servername = "localhost";
 $username = "cl_anotherroot";
 $password = "SJCA_Rass_042";
@@ -25,16 +39,20 @@ if($credits->num_rows > 0)
 		if((strtotime(date('Y-m-d')) - strtotime($credit['last_payment_date']))/86400 >= 1 &&
 		(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($credit['last_notified_at']))))/86400 >= 1)
 		{
-			$to = 'devparviz@gmail.com';
-			$subject = 'Bildirish Notification';
-			$message = 'This is a notification to ' . $credit['phone'] . '/' . $credit['name'];
-			$headers = "From:Bildirish<noreply@example.com>";
+			$to = '+994555349081';
+			$message = 'This is a notification to ' . $credit['phone'] . '/' . $credit['name'] . '.';
 
-			if(mail($to, $subject, $message, $headers))
+			if($client->messages->create(
+				$to,
+				array(
+					'from' => $twilio_number,
+					'body' => $message
+				)
+			))
 			{
 				$query_set = "UPDATE credits SET last_notified_at='" . date('Y-m-d H:i:s') . "' WHERE id=" . $credit['id'] . "";
 				$conn->query($query_set);
-				echo 'Notification sent to ' . $credit['phone'] . '/' . $credit['name'] . '<br>';
+				echo 'SMS sent to ' . $credit['phone'] . '/' . $credit['name'] . ' successfully.<br>';
 			}
 		}
 	}
