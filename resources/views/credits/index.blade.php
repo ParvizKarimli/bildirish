@@ -26,7 +26,13 @@
                         <td>{{$credit->name}}</td>
                         <td>{{$credit->phone}}</td>
                         <td>{{$credit->last_payment_date}}</td>
-                        <td>{{$credit->last_notified_at}}</td>
+                        <td>
+                            @if($credit->last_notified_at == '1970-01-01 00:00:00')
+                                -
+                            @else
+                                {{$credit->last_notified_at}}
+                            @endif
+                        </td>
                         <td>
                             <a href="/credits/{{$credit->id}}/edit" class="btn btn-warning">Redaktə Et</a>
                         </td>
