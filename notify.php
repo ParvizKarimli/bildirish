@@ -50,7 +50,7 @@ if($credits->num_rows > 0)
 				)
 			))
 			{
-				$query_set = "UPDATE credits SET last_notified_at='" . date('Y-m-d H:i:s') . "' WHERE id=" . $credit['id'] . "";
+				$query_set = "UPDATE credits SET last_notified_at='" . date('Y-m-d H:i:s') . "' WHERE id=" . $credit['id'];
 				$conn->query($query_set);
 				echo 'SMS sent to ' . $credit['phone'] . '/' . $credit['name'] . ' successfully.<br>';
 			}
