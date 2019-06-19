@@ -39,8 +39,8 @@ if($credits->num_rows > 0)
 		if((strtotime(date('Y-m-d')) - strtotime($credit['last_payment_date']))/86400 >= 1 &&
 		(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($credit['last_notified_at']))))/86400 >= 1)
 		{
-			$to = '+994555349081';
-			$message = 'This is a notification to ' . $credit['phone'] . '/' . $credit['name'] . '.';
+			$to = $credit['phone'];
+			$message = 'Hörmətli ' . $credit['name'] . ', sizin Okean Electronics-dən kreditlə aldığınız malın ödəmə tarixi keçmişdir. Zəhmət olmasa bu ayın ödənişini edəsiniz. Hörmətlə Okean Electronics.';
 
 			if($client->messages->create(
 				$to,
