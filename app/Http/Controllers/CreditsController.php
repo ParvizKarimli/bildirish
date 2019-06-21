@@ -136,7 +136,7 @@ class CreditsController extends Controller
             }
             else
             {
-                echo $credit->last_notified_at;
+                echo date('Y-m-d H:i:s', strtotime($credit->last_notified_at));
             }
             echo '</td><td><a href="/credits/' . $credit->id . '/edit" class="btn btn-warning">Redaktə Et</a></td></tr>';
         }

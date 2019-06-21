@@ -1,7 +1,5 @@
 <?php
 
-date_default_timezone_set('Asia/Baku');
-
 require 'bildirish/vendor/twilio/sdk/Twilio/autoload.php';
 use Twilio\Rest\Client;
 

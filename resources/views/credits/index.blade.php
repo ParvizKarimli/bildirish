@@ -30,7 +30,7 @@
                             @if($credit->last_notified_at == '1970-01-01 00:00:00')
                                 -
                             @else
-                                {{$credit->last_notified_at}}
+                                {{date('Y-m-d H:i:s', strtotime($credit->last_notified_at))}}
                             @endif
                         </td>
                         <td>
