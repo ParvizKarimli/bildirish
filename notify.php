@@ -24,9 +24,10 @@ if($conn->connect_error)
 	die("Connection failed: " . $conn->connect_error);
 }
 
-/* Check when the last payment was and when the last notification was.
+/*
+   Check when the last payment was and when the last notification was.
    If their differences from now are greater than specified number of days,
-   then send notification to related people, and change the last notification date & time to now
+   then send notification to each of the associated people, and change the last notification date & time to now.
 */
 $query_get = "SELECT id, name, phone, last_notified_at FROM credits WHERE last_payment_date <= (DATE_FORMAT(NOW(), '%Y-%m-%d') - INTERVAL 1 DAY) AND DATE_FORMAT(last_notified_at, '%Y-%m-%d') <= (DATE_FORMAT(NOW(), '%Y-%m-%d') - INTERVAL 1 DAY)";
 $credits = $conn->query($query_get);
