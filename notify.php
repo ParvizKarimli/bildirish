@@ -26,41 +26,39 @@ if($conn->connect_error)
 	die("Connection failed: " . $conn->connect_error);
 }
 
-$query_get = "SELECT id, name, phone, last_payment_date, last_notified_at FROM credits";
+/*
+   Check when the last payment was and when the last notification was.
+   If their differences from now are greater than specified number of days,
+   then send notification to each of the associated people, 
+   and change their last notification dates & times to now.
+*/
+$query_get = "SELECT id, name, phone FROM credits WHERE last_payment_date <= (DATE_FORMAT(NOW(), '%Y-%m-%d') - INTERVAL 1 DAY) AND DATE_FORMAT(last_notified_at, '%Y-%m-%d') <= (DATE_FORMAT(NOW(), '%Y-%m-%d') - INTERVAL 1 DAY)";
 $credits = $conn->query($query_get);
 if($credits->num_rows > 0)
 {
 	while($credit = $credits->fetch_assoc())
 	{
-		/* Check when the last payment was and when the last notification was.
-		   If their differences from now are greater than specified number of days,
-		   then send notification to related people, and change the last notification date & time to now
-		*/
-		if((strtotime(date('Y-m-d')) - strtotime($credit['last_payment_date']))/86400 >= 1 &&
-		(strtotime(date('Y-m-d')) - strtotime(date('Y-m-d', strtotime($credit['last_notified_at']))))/86400 >= 1)
-		{
-			$to = $credit['phone'];
-			$message = 'Hörmətli ' . $credit['name'] . ', sizin Okean Electronics-dən kreditlə aldığınız malın ödəmə tarixi keçmişdir. Zəhmət olmasa bu ayın ödənişini edəsiniz. Hörmətlə Okean Electronics.';
+        $to = $credit['phone'];
+        $message = 'Hörmətli ' . $credit['name'] . ', sizin Okean Electronics-dən kreditlə aldığınız malın ödəmə tarixi keçmişdir. Zəhmət olmasa bu ayın ödənişini edəsiniz. Hörmətlə Okean Electronics.';
 
-			try
+        try
+		{
+			if($client->messages->create(
+				$to,
+				array(
+					'from' => $twilio_number,
+					'body' => $message
+				)
+			))
 			{
-				if($client->messages->create(
-					$to,
-					array(
-						'from' => $twilio_number,
-						'body' => $message
-					)
-				))
-				{
-					$query_set = "UPDATE credits SET last_notified_at='" . date('Y-m-d H:i:s') . "' WHERE id=" . $credit['id'];
-					$conn->query($query_set);
-					echo 'SMS sent to ' . $credit['phone'] . '/' . $credit['name'] . ' successfully.<br>';
-				}
+				$query_set = "UPDATE credits SET last_notified_at='" . date('Y-m-d H:i:s') . "' WHERE id=" . $credit['id'];
+				$conn->query($query_set);
+				echo 'SMS sent to ' . $credit['phone'] . '/' . $credit['name'] . ' successfully.<br>';
 			}
-			catch(Exception $e)
-			{
-				echo $e->getMesssage();
-			}
+		}
+		catch(Exception $e)
+		{
+			$e->getMessage();
 		}
 	}
 }
