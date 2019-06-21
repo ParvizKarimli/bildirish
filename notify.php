@@ -58,7 +58,7 @@ if($credits->num_rows > 0)
 		}
 		catch(Exception $e)
 		{
-			$e->getMessage();
+			echo $e->getMessage();
 		}
 	}
 }
